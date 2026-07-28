@@ -3,6 +3,6 @@ from dataclasses import dataclass
 
 @dataclass
 class User:
-    id: int
+    user_id: int
     name: str
     email: str
