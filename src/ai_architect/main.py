@@ -1,9 +1,11 @@
 from ai_architect.models.user import User
+from ai_architect.repositories.in_memory_user_repository import InMemoryUserRepository
 from ai_architect.services.user_service import InvalidEmailError, UserService
 
 
 def main():
-    service = UserService()
+    repository = InMemoryUserRepository()
+    service = UserService(repository)
 
     service.create_user(User(user_id=1, name="Alice", email="alice@example.com"))
     service.create_user(User(user_id=2, name="Bob", email="bob@example.com"))
