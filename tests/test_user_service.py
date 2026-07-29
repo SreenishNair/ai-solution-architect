@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import pytest
 
 from ai_architect.models.user import User
@@ -64,16 +66,16 @@ def test_saving_same_id_replaces_the_user(service):
 class RecordingRepository:
     """A stand-in repository that records what the service asked it to do."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.saved: list[User] = []
 
-    def save(self, user):
+    def save(self, user: User) -> None:
         self.saved.append(user)
 
-    def get(self, user_id):
+    def get(self, user_id: int) -> User | None:
         return None
 
-    def list(self):
+    def list(self) -> list[User]:
         return []
 
 

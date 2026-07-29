@@ -8,8 +8,8 @@ from ai_architect.repositories.user_repository import UserRepository
 EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 
-class InvalidEmailError(Exception):
-    pass
+class InvalidEmailError(ValueError):
+    """Raised when an invalid email address is supplied."""
 
 
 class UserService:
